@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUESS THE NUMBER</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p>Welcome to...</p>
+    <h1>GUESS THE NUMBER!!!!!!! eliran™</h1>
+    <p>so basically you need to enter a number and it tells you if your too low or high or if you got it :)</p>
+
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <button onclick="resetGame()">Reset Game</button>
+    <p>(my javascript part doesnt work so i just use it here as < script >)</p>
+    <script>
+        var num;
+        var steps = 0;
+
+        function resetGame() {
+            num = Math.floor(Math.random() * 100) + 1;
+            steps = 0;
+        }
+
+        function checkGuess() {
+            const guess = parseInt(document.getElementById('guess').value);
+            if (guess === num) {
+                alert('good job :) you guessed the correct number in ' + steps + ' steps');
+                resetGame();
+            } else if (guess < num) {
+                alert('too low buddy');
+            } else {
+                alert('too high buddy');
+            }
+            steps++;
+        }
+        resetGame();
+    </script>
+</body>
+</html>
